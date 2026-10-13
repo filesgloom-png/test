@@ -1,0 +1,19 @@
+name: Test repo CI
+on:
+  push:
+    branches:
+      - main
+      - 'codeforge/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify deterministic fixture
+        run: python -c "from pathlib import Path; p=Path('fixture.txt'); assert p.read_text().strip() == 'CODEFORGE integration fixture'; print('fixture OK')"
