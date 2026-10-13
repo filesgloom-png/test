@@ -1,0 +1,3 @@
+CODEFORGE isolated patch test
+Validated envelope: create file
+Expected: only codeforge/integration-test-20261013 changes; main remains untouched.
